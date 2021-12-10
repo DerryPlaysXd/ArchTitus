@@ -236,19 +236,6 @@ fi
 
 echo -e "\nDone!\n"
 
-read -p "Are you using a laptop? (Y/n): " laptop
-if [[ $laptop == y ]] || [[$laptop == Y ]] then
-	echo "\nCLONING: auto-cpufreq\n"
-	git clone https://github.com/AdnanHodzic/auto-cpufreq
-	cd ${HOME}/auto-cpufreq
-	sudo chmod +x auto-cpufreq-installer
-	sudo ./auto-cpufreq-installer
-	sudo auto-cpufreq --install
-	cd ~/
-else
-	echo "\nOk!\n"
-fi
-
 if ! source install.conf; then
 	read -p "Please enter username:" username
 echo "username=$username" >> ${HOME}/ArchTitus/install.conf
