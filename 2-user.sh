@@ -10,6 +10,18 @@
 
 echo -e "\nINSTALLING AUR SOFTWARE\n"
 # You can solve users running this script as root with this and then doing the same for the next for statement. However I will leave this up to you.
+read -p "Are you using a laptop? (Y/n): " laptop
+cd ~
+if [[ $laptop == y ]] || [[$laptop == Y ]] then
+	echo "\nCLONING: auto-cpufreq\n"
+	git clone https://github.com/AdnanHodzic/auto-cpufreq
+	cd ${HOME}/auto-cpufreq
+	chmod +x auto-cpufreq-installer
+	./auto-cpufreq-installer
+	auto-cpufreq --install	
+else
+	echo "\nOk!\n"
+fi
 
 echo "CLONING: YAY"
 cd ~
